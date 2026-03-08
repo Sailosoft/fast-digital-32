@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "module": "System",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true,
+    "baseUrl": ".",
+    "types": [],
+    "paths": {
+      "react": ["./types/react.d.ts"],
+      "react-dom": ["./types/react-dom.d.ts"],
+      "estree": ["./types/estree.d.ts"],
+      "react/jsx-runtime": ["./types/react.d.ts"]
+    }
+  },
+  "include": ["src/**/*", "types/**/*", "types"]
+}

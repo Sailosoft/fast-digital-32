@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React + Tailwind (SystemJS)</title>
+
+  <!-- 1. Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Configure Tailwind to use Inter font -->
+  <style>
+    :root {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+
+  <!-- 2. React and ReactDOM CDNs -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- 3. SystemJS and Babel for TSX/JSX transformation -->
+  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.js"></script>
+  <!-- NOTE: This systemjs-babel script contains the logic to handle TSX imports -->
+  <script src="https://cdn.jsdelivr.net/npm/systemjs-babel@0.3.2/dist/systemjs-babel.min.js"></script>
+
+  <script>
+    // The SystemJS global config is not strictly needed for this simple case,
+    // but ensures the environment is set up.
+
+    // SystemJS import of the main application file (src/App.tsx)
+    console.log(window.ReactDOM ? 'ReactDOM is globally available.' : 'ReactDOM is NOT globally available.');
+    console.log("Loading src/App.tsx...");
+
+    System.import("./src/App.tsx")
+      .then(() => {
+        console.log("src/App.tsx loaded and executed successfully.");
+      })
+      .catch((err) => {
+        // Display error message on the page if loading fails
+        const root = document.getElementById('root');
+        if (root) {
+            root.innerHTML = `<div class="p-8 text-red-700 bg-red-100 rounded-lg max-w-xl mx-auto mt-10">
+                <h2 class="text-xl font-bold mb-2">Failed to Load Application</h2>
+                <p>Check the console for details on the SystemJS/Babel error.</p>
+                <pre class="whitespace-pre-wrap text-sm mt-3">${err.message || err.stack || err}</pre>
+            </div>`;
+        }
+        console.error("Error loading src/App.tsx:", err);
+      });
+  </script>
+</body>
+
+</html>

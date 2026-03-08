@@ -1,0 +1,51 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React + TS + Tailwind (SystemJS)</title>
+
+    <script src="src/scripts/tailwind.js"></script>
+
+    <!-- 2. React and ReactDOM CDNs -->
+    <!-- <script src="src/scripts/react.development.js" crossorigin></script>
+    <script src="src/scripts/react-dom.development.js" crossorigin></script> -->
+
+    <!-- <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> -->
+
+    <script src="src/scripts/system.min.js"></script>
+    <script src="src/scripts/systemjs-babel.min.js"></script>
+
+    <script src="src/scripts/react.development.esm.js"></script>
+    <script src="src/scripts/react-dom.development.esm.js"></script>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "react": "./src/scripts/react.development.esm.js",
+          "react-dom": "./src/scripts/react-dom.development.esm.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      System.import("./src/App.tsx")
+        .then(() => {
+          console.log("src/app.jsx loaded and executed successfully.");
+        })
+        .catch((err) => {
+          // Display error message on the page if loading fails
+          const root = document.getElementById("app");
+          if (root) {
+            root.innerHTML = `<div class="
+                <h2 class="text-xl font-bold mb-2">Failed to Load Application</h2>
+                <p>Check the console for details on the SystemJS/Babel error.</p>
+                <pre class="whitespace-pre-wrap text-sm mt-3">${err.message || err.stack || err}</pre>
+            </div>`;
+          }
+          console.error("Error loading src/app.jsx:", err);
+        });
+    </script>
+  </body>
+</html>
