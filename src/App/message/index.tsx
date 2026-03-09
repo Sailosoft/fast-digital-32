@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MyMessage from './my-message.tsx';
 
 interface NewHeart {
   id: number;
@@ -79,15 +80,18 @@ export default function MessagePage() {
       {/* Hero Section */}
       <header
         className="relative h-screen flex items-center justify-center bg-cover bg-center"
+        // style={{
+        //   backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1950&q=80')`
+        // }}
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1950&q=80')`
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./assets/images/main.jpeg')`,
         }}
       >
         <div className="text-center text-white px-4">
-          <h2 className="text-xl md:text-2xl font-light tracking-[0.3em] uppercase mb-4">To My Dearest</h2>
+          <h2 className="text-xl md:text-2xl font-light tracking-[0.3em] uppercase mb-4">To My Baby Juvy</h2>
           <h1 className="text-6xl md:text-8xl cursive mb-6 drop-shadow-lg">Happy Anniversary</h1>
           <p className="text-lg md:text-xl font-light italic max-w-2xl mx-auto">
-            "I love you not only for what you are, but for what I am when I am with you."
+            I Love You And Thank You For Being With Me And To All Wonderful Memories We Make Together
           </p>
           <div className="mt-16 animate-bounce">
             <span className="text-3xl">↓</span>
@@ -108,12 +112,11 @@ export default function MessagePage() {
             </div>
           ) : (
             <div className="glass-card p-10 rounded-2xl shadow-xl text-left border-2 border-rose-200 transition-all duration-700 ease-out translate-y-0 opacity-100">
-              <h3 className="cursive text-4xl text-rose-600 mb-6">My Dearest Love,</h3>
+              <h3 className="cursive text-4xl text-rose-600 mb-6">To My Baby Juvy,</h3>
               <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
-                <p>Every day with you feels like a beautiful dream that I never want to wake up from. Looking back at our journey together, I'm filled with so much gratitude for every laugh we've shared and even the challenges we've overcome.</p>
-                <p>You are my best friend, my rock, and my home. Thank you for choosing me every single day. I promise to keep loving you more with every sunrise.</p>
+                <MyMessage/>
                 <p className="pt-4 font-semibold italic">Forever Yours,</p>
-                <p className="cursive text-3xl text-rose-500">Me</p>
+                <p className="cursive text-3xl text-rose-500">Dagul, Gigulu, Baby</p>
               </div>
             </div>
           )}
@@ -126,9 +129,12 @@ export default function MessagePage() {
           <h2 className="text-4xl text-center font-bold text-gray-800 mb-16">Our Beautiful Memories</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { label: "The Day We Met", img: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f" },
-              { label: "Our First Date", img: "https://images.unsplash.com/photo-1516589174184-c6852657d803" },
-              { label: "Best Summer Ever", img: "https://images.unsplash.com/photo-1522673607200-1648832cee98" }
+              { label: "The Day We Are Together", img: "./assets/images/shoes.jpg" },
+              { label: "Your I Love You Feeling", img: "./assets/images/i-love-you.jpeg" },
+              { label: "My Chocolate", img: "./assets/images/chocolate.jpeg" },
+              { label: "Park Date", img: "./assets/images/park.jpeg" },
+              { label: "Venice Date", img: "./assets/images/white.jpeg" },
+              { label: "Date Everywhere", img: "./assets/images/brown.jpeg" },
             ].map((item, idx) => (
               <div key={idx} className="group relative overflow-hidden rounded-xl shadow-lg aspect-square">
                 <img
@@ -151,10 +157,28 @@ export default function MessagePage() {
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Year in Review</h2>
           <div className="space-y-6">
             {[
-              "Traveled to 3 new cities together",
-              "Adopted our furry friend, Luna",
-              "Learned how to cook that complex pasta",
-              "Countless movie nights and cuddles"
+              "Eat and Cook our hotpot",
+              "Eat and Watch Sa Malatang",
+              "Date and Gala Sa BGC",
+              "Date and Gala Sa Pembo",
+              "Date and Gala Sa Brgy, Rizal",
+              "Date and Gala Sa Woodpecker",
+              "Date and Gala Sa Bluebuz",
+              "Date and Gala Sa Taguig",
+              "Date and Gala Sa Maya St",
+              "Date and Gala Sa Guadalupe",
+              "Eat Together sa Deli",
+              "Eat Together, Date Sa Venice",
+              "Eat Together sa KBini",
+              "Eat Together sa Chowking WCity",
+              "Eat Together sa Jollibee Mind Musuem",
+              "Our First Kiss, Patry",
+              "Gala sa Signal at Housing",
+              "Eat and Gala Everywhere",
+              "Eat and Gala Everywhere",
+              "Eat and Gala Everywhere",
+              "Eat and Gala Everywhere",
+              "And Many Many More",
             ].map((text, i) => (
               <div key={i} className="flex items-center space-x-4 bg-white p-4 rounded-lg shadow-sm">
                 <div className="bg-rose-500 text-white w-8 h-8 flex items-center justify-center rounded-full text-sm">✓</div>
@@ -167,7 +191,7 @@ export default function MessagePage() {
 
       {/* Footer */}
       <footer className="py-12 bg-white text-center border-t border-rose-100">
-        <p className="text-gray-500 mb-4 italic">Cheers to many more years of us.</p>
+        <p className="text-gray-500 mb-4 italic">I Always Love You Baby Ko, My Wifey, and My Baby Juvy</p>
         <div className="flex justify-center space-x-4 text-rose-400">
           <span className="text-2xl animate-pulse">❤</span>
           <span className="text-2xl animate-pulse" style={{ animationDelay: '0.2s' }}>❤</span>
